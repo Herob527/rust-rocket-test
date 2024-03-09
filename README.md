@@ -12,6 +12,6 @@ Basically, this is project for learning Rocket framework and Rust
 
 /numbers_generation
 
-/numbers_generation/<number>
+/numbers_generation/\<number\>
 
 /numbers_generation/rand
