@@ -2,14 +2,19 @@ use std::{fs::File, io::Write};
 
 use rocket::Route;
 
+fn format_route(path: &str, index: usize) -> String {
+    format!("**{}**: {}", index, path.replace("<", "\\<").replace(">", "\\>"))
+}
+
 pub fn generate_readme(routes: Vec<&Route>) {
     let file = File::create("README.md");
     let uris = routes
-        .iter()
-        .map(|route| route.uri.path().replace("<", "\\<").replace(">", "\\>"))
+        .iter().enumerate()
+        .map(|(index, route)| format_route(route.uri.path(), index))
         .collect::<Vec<String>>()
         .join("\n\n");
-    let parsed_template = format!("# NUMBERS API
+    let parsed_template = format!(
+        "# NUMBERS API
 
 Note: README.md Generated automatically
 
