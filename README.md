@@ -8,10 +8,10 @@ Basically, this is project for learning Rocket framework and Rust
 
 ## Routes
 
-/
+**0**: /
 
-/numbers_generation
+**1**: /numbers_generation
 
-/numbers_generation/\<number\>
+**2**: /numbers_generation/\<number\>
 
-/numbers_generation/rand
+**3**: /numbers_generation/rand
