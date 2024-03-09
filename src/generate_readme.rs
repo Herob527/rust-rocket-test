@@ -6,8 +6,8 @@ pub fn generate_readme(routes: Vec<&Route>) {
     let file = File::create("README.md");
     let uris = routes
         .iter()
-        .map(|route| route.uri.path())
-        .collect::<Vec<&str>>()
+        .map(|route| route.uri.path().replace("<", "\\<").replace(">", "\\>"))
+        .collect::<Vec<String>>()
         .join("\n\n");
     let parsed_template = format!("# NUMBERS API
 
